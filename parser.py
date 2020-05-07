@@ -26,6 +26,4 @@ def write_csv(counter):
 
 
 if __name__ == '__main__':
-    filename = reader('log')
-    counter = count(filename)
-    write_csv(counter)
+    write_csv(count(reader('log')))
