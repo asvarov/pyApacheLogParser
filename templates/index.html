@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Apache log parser</title>
+</head>
+<body>
+    <h1>Apache log parser</h1>
+    <form method="POST" action="{{ url_for('index') }}" enctype="multipart/form-data">
+      <div class="form-group">
+          <input type="file" class="form-control-file" name="log_file">
+          <button type="submit" name="button">Submit</button>
+      </div>
+    </form>
+            {% for item in ips %}
+                <p>{{ item['ip'] }} - {{ item['counts'] }}</p>
+            {% endfor %}
+            <h3>Add below strings to .htaccess Apache file</h3>
+            {% for item in ips %}
+                <p>Deny from {{ item['ip'] }}</p>
+            {% endfor %}
+</body>
+</html>
