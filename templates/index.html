@@ -3,6 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Apache log parser</title>
+    {% if session['mode'] == 'dark' %}
+        <style>
+            body {
+                background-color: black;
+                color: white;
+            }
+        </style>
+    {% endif %}
 </head>
 <body>
     <h1>Apache log parser</h1>
@@ -19,5 +27,10 @@
             {% for item in ips %}
                 <p>Deny from {{ item['ip'] }}</p>
             {% endfor %}
+
+    <div style="text-align: center">
+        <a href="{{ url_for('set_bg', mode = 'light') }}">Light mode</a>
+        <a href="{{ url_for('set_bg', mode = 'dark') }}">Dark mode</a>
+    </div>
 </body>
 </html>
