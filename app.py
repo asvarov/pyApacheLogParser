@@ -58,6 +58,12 @@ def getcookie():
         return 'The framework is None'
     return 'The framework is ' + framework
 
+@app.route('/drop')
+def dropcookie():
+    drop = make_response("Cookie Removed")
+    drop.set_cookie('framework', max_age=0)
+    return drop
+
 
 if __name__ == '__main__':
     app.run(debug=True)
